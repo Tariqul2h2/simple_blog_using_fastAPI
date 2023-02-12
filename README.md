@@ -1,4 +1,4 @@
-# FastAPI
+# Simple Blog Using FastAPI
 FastAPI is a modern, fast (high-performance), web framework for building APIs with Python. 
 This is a simple blog application using latest FastAPI framework where users can login, sign
 up, create/delete posts and make comment on those posts. Registered member can see the list of signed
@@ -83,3 +83,4 @@ The application have those following features:
 
 ### Comment on a post
 Anyone can comment on any post. But S/he must provide, name and email address. 
+
