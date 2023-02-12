@@ -37,11 +37,30 @@ class ShowUser(BaseModel):
         orm_mode = True
 
 
+class FullUser(BaseModel):
+    username: str
+    email: str
+    full_name: str
+
+
 class AllUser(BaseModel):
     username: str
+    email: str
+    first_name: str
+    last_name: str
 
-    class Config:
-        orm_mode = True
+# class AllUser(BaseModel):
+#     username: str
+#     email: str
+#     first_name: str
+#     last_name: str
+#
+#     @property
+#     def fullname(self):
+#         return f"{self.first_name} {self.last_name}"
+#
+#     class Config:
+#         orm_mode = True
 
 
 class ShowAllBlog(ShowBlog):

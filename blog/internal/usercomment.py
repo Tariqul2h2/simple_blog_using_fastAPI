@@ -1,7 +1,7 @@
 from fastapi import status, HTTPException
 from sqlalchemy.orm import Session
-from .. import models
-from ..schemas import Comment
+import models
+from schemas import Comment
 
 
 def create_comment(db: Session, post_id: int, comment: Comment):

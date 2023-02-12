@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from jose import jwt, JWTError
-from .schemas import TokenData
+from schemas import TokenData
 
 SECRET_KEY = "09d25e094faaabcdef6c8181dbcaa9563b93f70fbcdeaf4caa6cf63b88e8abcd"
 ALGORITHM = "HS256"

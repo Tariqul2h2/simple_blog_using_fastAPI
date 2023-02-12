@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
-from ..schemas import Comment
+from schemas import Comment
 from sqlalchemy.orm import Session
-from ..database import get_db
-from ..internal import usercomment
+from database import get_db
+from internal import usercomment
 
 router = APIRouter(
     tags=['Comment'],

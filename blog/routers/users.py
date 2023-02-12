@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, status
-from ..schemas import User, ShowUser, AllUser
+from schemas import User, ShowUser, FullUser
 from sqlalchemy.orm import Session
-from ..database import get_db
-from ..internal import user
-from ..auth import get_current_user
+from database import get_db
+from internal import user
+from auth import get_current_user
 from typing import List
 
 router = APIRouter(
@@ -22,9 +22,15 @@ def get_user(username, db: Session = Depends(get_db), get_current_user: User = D
     return user.get_user(username, db)
 
 
-@router.get('/', status_code=status.HTTP_200_OK, response_model=List[AllUser])
+@router.get('/', status_code=status.HTTP_200_OK, response_model=List[FullUser])
 def get_all(db: Session = Depends(get_db), get_current_user: User = Depends(get_current_user)):
-    return user.get_all_user(db)
+    users = [
+        FullUser(username=user.username, email=user.email,
+                 full_name=user.first_name + " " + user.last_name)
+        for user in user.get_all_user(db)
+
+    ]
+    return users
 
 
 @router.delete('/{username}')
