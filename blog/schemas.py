@@ -1,11 +1,13 @@
 from pydantic import BaseModel
 from datetime import datetime
 from typing import List, Optional
+from fastapi import UploadFile
 
 
 class Blog(BaseModel):
     title: str
     description: str
+    image: UploadFile
 
 
 class User(BaseModel):

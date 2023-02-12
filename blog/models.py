@@ -29,7 +29,7 @@ class Blog(Base):
     author = Column(String, ForeignKey('users.username'))
     description = Column(String)
     published_date = Column(DateTime(timezone=True), server_default=func.now())
-
+    image = Column(String)
     creator = relationship('User', back_populates='post_id')
     user_comment = relationship("Comment", back_populates="post_related")
 
